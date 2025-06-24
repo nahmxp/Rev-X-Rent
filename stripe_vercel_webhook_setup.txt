@@ -1,0 +1,45 @@
+Stripe Vercel Webhook Setup Guide
+
+This guide outlines the steps to configure Stripe webhooks for your application deployed on Vercel.
+
+1.  **Deploy your application to Vercel:**
+    *   Ensure your latest code (including the webhook API route at `/api/payment/webhook.js`) is pushed to your Git repository connected to Vercel.
+    *   Vercel will automatically build and deploy your application, assigning it a public URL (e.g., `https://your-project-name.vercel.app`).
+
+2.  **Obtain your Live Stripe API Keys:**
+    *   Log in to your Stripe Dashboard.
+    *   Go to `Developers` > `API keys`.
+    *   Copy your **Live Publishable key** (starts with `pk_live_`).
+    *   Copy your **Live Secret key** (starts with `sk_live_`).
+
+3.  **Add Live API Keys and Webhook Secret to Vercel Environment Variables:**
+    *   Go to your Vercel Dashboard and navigate to your project.
+    *   Go to `Settings` > `Environment Variables`.
+    *   Add the following environment variables:
+        *   `STRIPE_SECRET_KEY`: Paste your **Live Secret key** here.
+        *   `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Paste your **Live Publishable key** here.
+        *   `STRIPE_WEBHOOK_SECRET`: You will get this in the next step, leave this blank for now or use a temporary placeholder.
+    *   Ensure these variables are applied to the appropriate environments (Production, Preview, Development).
+    *   Redeploy your Vercel project after adding/updating environment variables.
+
+4.  **Add a Webhook Endpoint in Stripe for Vercel:**
+    *   In your Stripe Dashboard, go to `Developers` > `Webhooks`.
+    *   Click `Add endpoint`.
+    *   For the **Endpoint URL**, enter the public URL of your Vercel deployment followed by `/api/payment/webhook` (e.g., `https://your-project-name.vercel.app/api/payment/webhook`).
+    *   For **Version**, select the recommended API version or the one your Stripe library is using.
+    *   Under **Select events to listen to**, choose the events relevant to your application. At minimum, select `checkout.session.completed` to update order status after payment.
+    *   Click `Add endpoint`.
+
+5.  **Obtain the Live Webhook Secret for the Vercel Endpoint:**
+    *   After adding the endpoint, Stripe will display its details.
+    *   Find the **Webhook secret** for this specific endpoint (it starts with `whsec_`). This is your **Live Webhook Secret** for Vercel.
+    *   **Copy this secret.** Keep it secure.
+
+6.  **Update `STRIPE_WEBHOOK_SECRET` on Vercel:**
+    *   Go back to your Vercel project's Environment Variables (`Settings` > `Environment Variables`).
+    *   Edit the `STRIPE_WEBHOOK_SECRET` variable.
+    *   Paste the **Live Webhook Secret** you just copied from Stripe.
+    *   Save the changes.
+    *   Vercel will likely trigger a new deployment to apply this change. Confirm the deployment finishes successfully.
+
+Your Vercel deployment is now configured to receive webhook events from Stripe at the specified endpoint, using the correct live keys and webhook secret. 

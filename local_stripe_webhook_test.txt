@@ -1,0 +1,37 @@
+Local Stripe Webhook Testing Guide
+
+This guide explains how to test Stripe webhooks locally using the Stripe CLI.
+
+1.  **Ensure your local development server is running:**
+    *   Start your Next.js development server (e.g., `npm run dev`). Make sure your application is accessible locally, typically at `http://localhost:3000`.
+
+2.  **Install the Stripe CLI:**
+    *   If you haven't already, install the Stripe CLI by following the instructions in the Stripe documentation: [https://stripe.com/docs/stripe-cli](https://stripe.com/docs/stripe-cli).
+
+3.  **Log in to your Stripe account via the CLI:**
+    *   Open your terminal and run: `stripe login`
+    *   This will open a browser window for you to authenticate with your Stripe account.
+
+4.  **Forward webhook events to your local endpoint:**
+    *   In your terminal, run the following command:
+        ```bash
+        stripe listen --forward-to localhost:3000/api/payment/webhook
+        ```
+        *   Replace `3000` with the port your local development server is running on if it's different.
+        *   This command tells the Stripe CLI to listen for events from your Stripe account and forward them to your specified local endpoint.
+    *   The CLI will output a **Webhook secret signing key** (starts with `whsec_`). Copy this key.
+
+5.  **Add the local webhook secret to your `.env.local` file:**
+    *   Open the `.env.local` file in the root of your project.
+    *   Add or update the `STRIPE_WEBHOOK_SECRET` variable with the key you just copied from the Stripe CLI:
+        ```
+        STRIPE_WEBHOOK_SECRET=whsec_YOUR_LOCAL_WEBHOOK_SECRET
+        ```
+    *   Make sure you are using your **test** Stripe keys (`STRIPE_SECRET_KEY=sk_test_...` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...`) in your `.env.local` for local testing.
+
+6.  **Restart your local development server:**
+    *   If your server was running when you updated `.env.local`, stop it and restart it (`npm run dev`) to load the new environment variable.
+
+7.  **Trigger a webhook event:**
+    *   Now, when you trigger an event in your local environment that would normally send a webhook (like completing a payment through Stripe Checkout), the Stripe CLI will intercept it and forward it to your local webhook endpoint (`/api/payment/webhook`).
+    *   You should see logs in both your Stripe CLI terminal (indicating receipt and forwarding) and your Next.js development server terminal (indicating the webhook API route was hit and processed). 
