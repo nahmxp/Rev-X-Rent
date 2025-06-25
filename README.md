@@ -2,11 +2,18 @@
 
 Rev X Rent is a modern, full-featured car rental platform built with Next.js, React, and MongoDB. It offers a seamless experience for both customers and administrators, supporting car rentals, user management, order processing, and more. The platform is designed for flexibility, scalability, and ease of use, with a focus on both individual and group rentals.
 
+## 🚗 New: Pickup Request System & Admin Panel
+- **Pickup Request System:** Anyone can request a car pickup (with or without an account). Requests include customer info, pickup/drop locations, time, car category, and headcount.
+- **User/Email Lookup:** Logged-in users see their own requests. If a request was made while logged out, users can look up requests by email.
+- **Admin Pickup Requests Panel:** Admins can view, update, and manage all pickup requests (status, price, etc.) from a dedicated admin page, accessible from the Admin Options menu.
+- **JWT-based Authentication:** The platform now uses a custom JWT-based authentication system for all user and admin features, removing the need for next-auth and resolving deployment conflicts.
+
 ## Key Features
 
 - **Car Rental Catalog**: Browse, search, and filter a wide range of vehicles by category (Economy, SUV, Luxury, Van) with real-time availability and detailed information.
-- **Pickup Request System**: Anyone (even without an account) can request a car pickup by filling out a simple form (name, email, phone, pickup/drop locations, time, car category, headcount). Logged-in users can view their own pickup requests.
-- **User Authentication & Profiles**: Secure signup, login, and profile management. Role-based access for users and admins.
+- **Pickup Request System**: Anyone (even without an account) can request a car pickup by filling out a simple form (name, email, phone, pickup/drop locations, time, car category, headcount). Logged-in users can view their own pickup requests or look them up by email.
+- **Admin Pickup Requests Panel**: Admins can view, update, and manage all pickup requests, including status and pricing, from a dedicated dashboard.
+- **User Authentication & Profiles**: Secure signup, login, and profile management. Role-based access for users and admins. JWT-based authentication for all features.
 - **Wishlist & Cart**: Save favorite cars to a wishlist, add cars to a cart, and manage rental or purchase options.
 - **Order Management**: Place, track, and manage rental and purchase orders. Admins have a comprehensive dashboard for all orders, with advanced filtering and status management.
 - **Admin Dashboard**: Manage users, cars, orders, and platform settings. Role-based access ensures only authorized users can access admin features.
@@ -18,13 +25,20 @@ Rev X Rent is a modern, full-featured car rental platform built with Next.js, Re
 - Prominently featured on the home page with a dynamic, animated call-to-action.
 - Accessible from the main navigation bar ("Pickup Request" or "Ride_?").
 - Open to all users (no login required to submit a request).
-- Logged-in users can view a list of their own pickup requests.
-- All requests are securely stored in the database and visible to admins for processing.
+- Logged-in users can view a list of their own pickup requests, or look up requests by email.
+- All requests are securely stored in the database and visible to admins for processing and management.
+- Admins can update request status and pricing from the admin panel.
+- JWT-based authentication is now used throughout the platform for secure, conflict-free deployment.
 
 ---
 
 ## Recent Features & Improvements (as of May 2025)
 
+- **Pickup Request Admin Panel & JWT Auth Refactor**
+  - Admins can view, update, and manage all pickup requests (status, price, etc.)
+  - Users can look up requests by email if not logged in
+  - All authentication now uses a custom JWT-based system (no next-auth)
+  - Resolves all deployment and dependency conflicts
 - **Payment Enablement for Orders**
   - Admins can enable/disable payment for any order
   - Users see a "Pay Now" button only when payment is enabled and order is in the correct status
