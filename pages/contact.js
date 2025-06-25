@@ -161,7 +161,7 @@ export default function Contact() {
               <div className="info-content">
                 <h3>Address</h3>
                 <p>
-                  123 Shopping Street<br />
+                  123 Car Rental Avenue<br />
                   Suite 456<br />
                   New York, NY 10001<br />
                   United States
@@ -181,7 +181,7 @@ export default function Contact() {
               <div className="info-icon">✉️</div>
               <div className="info-content">
                 <h3>Email</h3>
-                <p>support@shophub.com</p>
+                <p>support@revxrent.com</p>
               </div>
             </div>
             
@@ -261,10 +261,10 @@ export default function Contact() {
       {/* CTA Section */}
       <section className="contact-cta-section">
         <div className="cta-content">
-          <h2>Ready to Start Shopping?</h2>
+          <h2>Ready to Start Renting?</h2>
           <p>Explore our catalog of products available for purchase or rent.</p>
           <Link href="/catalog">
-            <button className="btn-primary">Shop Now</button>
+            <button className="btn-primary">Rent a Car</button>
           </Link>
         </div>
       </section>

@@ -43,9 +43,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider>
       <AuthProvider>
         <Head>
-          <title>ShopHub</title>
-          <meta name="description" content="Your one-stop shop for all your needs" />
-          <link rel="icon" href="/images/shop-logo.png" />
+          <title>Rev X Rent</title>
+          <meta name="description" content="Premium car rentals for every journey. Economy, luxury, SUVs, and more!" />
+          <link rel="icon" href="/images/Icon.png" />
         </Head>
         <Layout>
           <Component {...pageProps} />

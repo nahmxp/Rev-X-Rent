@@ -186,7 +186,7 @@ export default function Layout({ children }) {
           <div className="cookie-warning-content">
             <h3>Cookies Required</h3>
             <p>
-              This site requires cookies to keep you logged in and provide a secure shopping experience.<br />
+              This site requires cookies to keep you logged in and provide a secure rental experience.<br />
               Please enable cookies in your browser settings and disable any extensions that block cookies.
             </p>
             <button className="btn-primary" onClick={() => setShowCookieWarning(false)}>
@@ -201,15 +201,15 @@ export default function Layout({ children }) {
             <Link href="/home">
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <img 
-                  src="/images/shop-logo.png" 
-                  alt="Shop Logo" 
+                  src="/images/Icon.png" 
+                  alt="Rev X Rent Logo" 
                   style={{ height: '30px', marginRight: '10px', borderRadius: '8px' }} 
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.style.display = 'none';
                   }}
                 />
-                <span className="site-name">ShopHub</span>
+                <span className="site-name">Rev X Rent</span>
               </div>
             </Link>
           </div>
@@ -405,7 +405,7 @@ export default function Layout({ children }) {
       <footer className="main-footer">
         <div className="container">
           <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} ShopHub. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Rev X Rent. All rights reserved.</p>
           </div>
         </div>
       </footer>

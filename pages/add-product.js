@@ -4,16 +4,10 @@ import withAuth from '../lib/withAuth';
 
 // List of common product categories
 const CATEGORIES = [
-  "Jute Bags",
-  "Jute Handbags",
-  "Jute Mattresses",
-  "Jute Rugs",
-  "Jute Home Decor",
-  "Jute Accessories",
-  "Jute Packaging",
-  "Jute Furniture",
-  "Jute Textiles",
-  "Jute Crafts",
+  "Economy",
+  "SUV",
+  "Luxury",
+  "Van",
   "Other"
 ];
 

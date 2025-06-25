@@ -96,7 +96,7 @@ function Checkout() {
             calculateTotal(itemsToProcess, 1, rentalRates, formData.rentalUnit, initialProductModes);
           }
         } else {
-          // Shopping cart checkout case
+          // Rental cart checkout case
           const userKey = `cart_${user._id}`;
           const cartItems = JSON.parse(localStorage.getItem(userKey) || '[]');
           
@@ -764,7 +764,7 @@ function Checkout() {
           
           <div className="form-actions">
             <Link href="/catalog">
-              <button type="button" className="btn-outline">Continue Shopping</button>
+              <button type="button" className="btn-outline">Continue Browsing Cars</button>
             </Link>
           </div>
           

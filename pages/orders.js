@@ -136,7 +136,7 @@ function Orders() {
           <h3>No orders yet</h3>
           <p>You haven't placed any orders yet.</p>
           <Link href="/catalog">
-            <button className="btn-primary">Start Shopping</button>
+            <button className="btn-primary">Start Renting</button>
           </Link>
         </div>
       </div>
@@ -281,7 +281,7 @@ function Orders() {
       
       <div className="orders-actions">
         <Link href="/">
-          <button className="btn-outline">Continue Shopping</button>
+          <button className="btn-outline">Continue Browsing Cars</button>
         </Link>
       </div>
     </div>

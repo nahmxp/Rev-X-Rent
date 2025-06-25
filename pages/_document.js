@@ -5,9 +5,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="/favicon.png?v=2" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
-          <link rel="apple-touch-icon" href="/favicon.png?v=2" />
+          <link rel="icon" href="/images/Icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/images/Icon.png" />
+          <link rel="apple-touch-icon" href="/images/Icon.png" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <body>
