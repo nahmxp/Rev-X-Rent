@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '../lib/AuthContext';
+import { useRouter } from 'next/router';
 
 const carCategories = ['Economy', 'SUV', 'Luxury', 'Van'];
 
 export default function PickupRequestPage() {
-  const { data: session } = useSession();
+  const { user, isAuthenticated, loading } = useAuth();
+  const router = useRouter();
   const [form, setForm] = useState({
     customerName: '',
     email: '',
@@ -21,14 +23,15 @@ export default function PickupRequestPage() {
   const [myRequests, setMyRequests] = useState([]);
 
   useEffect(() => {
-    if (session) {
-      fetch('/api/pickup-requests')
+    if (loading) return;
+    if (isAuthenticated) {
+      fetch('/api/pickup-requests', { credentials: 'include' })
         .then(res => res.json())
         .then(data => {
           if (Array.isArray(data)) setMyRequests(data);
         });
     }
-  }, [session, success]);
+  }, [isAuthenticated, loading, success]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -87,7 +90,7 @@ export default function PickupRequestPage() {
         {success && <div style={{ color: 'green' }}>Pickup request submitted!</div>}
         {error && <div style={{ color: 'red' }}>{error}</div>}
       </form>
-      {session && (
+      {isAuthenticated && (
         <div className="my-pickup-requests" style={{ marginTop: 40 }}>
           <h2>My Pickup Requests</h2>
           {myRequests.length === 0 ? <p>No requests yet.</p> : (
