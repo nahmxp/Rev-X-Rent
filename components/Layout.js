@@ -232,6 +232,9 @@ export default function Layout({ children }) {
               <li className={isActive('/catalog')}>
                 <Link href="/catalog" onClick={() => setMobileMenuOpen(false)}>Catalog</Link>
               </li>
+              <li className={isActive('/pickup-request')}>
+                <Link href="/pickup-request" onClick={() => setMobileMenuOpen(false)}>Ride_?</Link>
+              </li>
               <li className={isActive('/about')}>
                 <Link href="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
               </li>
@@ -345,6 +348,11 @@ export default function Layout({ children }) {
                       <li>
                         <Link href="/orders" onClick={() => setProfileDropdownOpen(false)}>
                           My Orders
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/my-pickup-requests" onClick={() => setProfileDropdownOpen(false)}>
+                          My Pickup Requests
                         </Link>
                       </li>
                       {isAdmin && (

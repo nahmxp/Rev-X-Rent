@@ -5368,3 +5368,12 @@ main.container {
   border-radius: 8px;
   border: 1px solid var(--border-color);
 }
+
+.pickup-request-cta {
+  padding: 40px 48px;
+}
+@media (max-width: 700px) {
+  .pickup-request-cta {
+    padding: 24px 12px !important;
+  }
+}

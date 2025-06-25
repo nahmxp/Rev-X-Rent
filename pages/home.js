@@ -89,6 +89,47 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Pickup Request Section */}
+        <section className="pickup-request-cta" style={{ margin: '40px 0', padding: '40px 48px', background: 'linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%)', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.07)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24 }}>
+            <div style={{ flex: 1, minWidth: 260 }}>
+              <h2 style={{ fontSize: 32, marginBottom: 12 }}>Need a Pickup?</h2>
+              <p style={{ fontSize: 18, marginBottom: 20 }}>Request a car pickup for yourself or your group. Fast, easy, and available to everyone!</p>
+              <Link href="/pickup-request">
+                <button className="btn-primary" style={{ fontSize: 18, padding: '12px 32px' }}>Request Pickup</button>
+              </Link>
+            </div>
+            <div style={{ flex: 1, minWidth: 260, position: 'relative', height: 120 }}>
+              <div style={{ position: 'absolute', left: 0, right: 0, top: 40, height: 40, background: 'linear-gradient(90deg, #b6e0fe 0%, #f0f4f8 100%)', borderRadius: 20 }}></div>
+              <div className="car-animation" style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: 120, overflow: 'hidden' }}>
+                <div style={{
+                  width: 100,
+                  height: 60,
+                  background: '#fff',
+                  borderRadius: 20,
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.12)',
+                  position: 'absolute',
+                  left: 0,
+                  top: 20,
+                  animation: 'carMove 3s linear infinite',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 2
+                }}>
+                  <img src="/images/Icon.png" alt="Car" style={{ width: 60, height: 40 }} />
+                </div>
+                <style jsx>{`
+                  @keyframes carMove {
+                    0% { left: 0; }
+                    100% { left: calc(100% - 100px); }
+                  }
+                `}</style>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section className="features-section">
           <div className="features-grid">

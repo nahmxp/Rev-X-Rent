@@ -4,6 +4,7 @@ import { AuthProvider } from '../lib/AuthContext';
 import { ThemeProvider } from '../lib/ThemeContext';
 import { useEffect } from 'react';
 import Head from 'next/head';
+import { SessionProvider } from 'next-auth/react';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -40,18 +41,20 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <Head>
-          <title>Rev X Rent</title>
-          <meta name="description" content="Premium car rentals for every journey. Economy, luxury, SUVs, and more!" />
-          <link rel="icon" href="/images/Icon.png" />
-        </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </AuthProvider>
-    </ThemeProvider>
+    <SessionProvider session={pageProps.session}>
+      <ThemeProvider>
+        <AuthProvider>
+          <Head>
+            <title>Rev X Rent</title>
+            <meta name="description" content="Premium car rentals for every journey. Economy, luxury, SUVs, and more!" />
+            <link rel="icon" href="/images/Icon.png" />
+          </Head>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AuthProvider>
+      </ThemeProvider>
+    </SessionProvider>
   );
 }
 

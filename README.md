@@ -1,6 +1,27 @@
 # Rev X Rent
 
-A modern e-commerce dashboard built with Next.js, React, and MongoDB, featuring advanced filtering, sorting, catalog views, comprehensive user management, role-based access control, and complete shopping functionality with buy and rent options.
+Rev X Rent is a modern, full-featured car rental platform built with Next.js, React, and MongoDB. It offers a seamless experience for both customers and administrators, supporting car rentals, user management, order processing, and more. The platform is designed for flexibility, scalability, and ease of use, with a focus on both individual and group rentals.
+
+## Key Features
+
+- **Car Rental Catalog**: Browse, search, and filter a wide range of vehicles by category (Economy, SUV, Luxury, Van) with real-time availability and detailed information.
+- **Pickup Request System**: Anyone (even without an account) can request a car pickup by filling out a simple form (name, email, phone, pickup/drop locations, time, car category, headcount). Logged-in users can view their own pickup requests.
+- **User Authentication & Profiles**: Secure signup, login, and profile management. Role-based access for users and admins.
+- **Wishlist & Cart**: Save favorite cars to a wishlist, add cars to a cart, and manage rental or purchase options.
+- **Order Management**: Place, track, and manage rental and purchase orders. Admins have a comprehensive dashboard for all orders, with advanced filtering and status management.
+- **Admin Dashboard**: Manage users, cars, orders, and platform settings. Role-based access ensures only authorized users can access admin features.
+- **Responsive UI**: Mobile-first, adaptive design with light/dark theme support and a modern, intuitive interface.
+- **Email Notifications**: Automated emails for order updates, confirmations, and account actions.
+- **Secure Payments**: Integrated payment processing for rental and purchase transactions (Stripe-ready).
+
+### Recent Addition: Pickup Request Feature
+- Prominently featured on the home page with a dynamic, animated call-to-action.
+- Accessible from the main navigation bar ("Pickup Request" or "Ride_?").
+- Open to all users (no login required to submit a request).
+- Logged-in users can view a list of their own pickup requests.
+- All requests are securely stored in the database and visible to admins for processing.
+
+---
 
 ## Recent Features & Improvements (as of May 2025)
 
@@ -398,7 +419,8 @@ Rev X Rent/
 │
 └── styles/                 # CSS styles
     └── globals.css         # Global styles including dark/light theme and admin UI
-````markdown
+```
+
 ## Implemented Features in Detail
 
 ### User Authentication and Authorization System
