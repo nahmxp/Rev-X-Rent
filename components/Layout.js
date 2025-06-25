@@ -280,6 +280,14 @@ export default function Layout({ children }) {
                           All Orders
                         </Link>
                       </li>
+                      <li className={isActive('/all-pickup-requests')}>
+                        <Link href="/all-pickup-requests" onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMobileMenuOpen(false);
+                        }}>
+                          All Pickup Requests
+                        </Link>
+                      </li>
                     </ul>
                   )}
                 </li>
